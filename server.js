@@ -3,7 +3,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const sequelize = require("./config/connection");
 
-const routes = require('./controllers/');
+const routes = require("./controllers/");
 
 const app = express();
 const hbs = exphbs.create({});
@@ -26,3 +26,7 @@ sequelize.sync({ force: false }).then(() => {
     console.log(`App listening on port ${PORT}!`);
   });
 });
+
+//Psued code
+// Change Date to YYY-MM-DD
+// Seed data
