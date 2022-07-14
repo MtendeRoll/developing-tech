@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MtendeRoll/mvcProject.git"
+    "url": "git+https://github.com/MtendeRoll/developing-tech.git"
   },
   "author": "Mtende Roll",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MtendeRoll/mvcProject/issues"
+    "url": "https://github.com/MtendeRoll/developing-tech/issues"
   },
-  "homepage": "https://github.com/MtendeRoll/mvcProject#readme",
+  "homepage": "https://github.com/MtendeRoll/developing-tech#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.4",
