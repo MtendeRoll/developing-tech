@@ -1,18 +1,7 @@
-<div>
-<ol class="post-list">
-  {{#each posts}}
-  <li>
-    <article class="post">
-      <div class="title">
-        <a href="{{post_url}}" target="_blank">{{title}}</a>
-        <span>({{post_url}})</span>
-      </div>
-      <div class="meta">
-        <a href="/post/{{id}}">{{comments.length}} comment(s)</a> by {{user.username}} on
-        {{created_at}}
-      </div>
-    </article>
-  </li>
-    {{/each}}
-</ol>
-</div>
+{{#if loggedIn}}
+
+{{#each posts as |post|}}
+{{> post-info post}}
+{{/each}}
+
+{{/if}}
