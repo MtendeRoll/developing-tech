@@ -1,0 +1,18 @@
+<article>
+  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <h2>
+    New Post
+  </h2>
+  <form id="new-post-form">
+    <div>
+      <input name="post-title" type="text" value="{{post.title}}" />
+      <span>({{format_url post.post_url}})</span>
+    </div>
+  <div>
+    <textarea name="post-body"></textarea>
+  </div>
+    <button type="submit">Save post</button>
+  </form>
+</article>
+
+<script src="/js/new-post.js"></script>
