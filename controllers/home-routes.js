@@ -7,13 +7,7 @@ router.get("/", async (req, res) => {
   try {
     // we need to get all Posts and include the User for each (change lines 8 and 9)
     const postData = await Post.findAll({
-      attributes: [
-        "id",
-        "post_url",
-        "title",
-        "created_at",
-        //[sequelize.literal('(SELECT COUNT(*) FROM comment WHERE post.id = comment.post_id)'), 'comment_count']
-      ],
+      attributes: ["id", "post_url", "title", "created_at"],
       include: [
         {
           model: User,
@@ -31,7 +25,6 @@ router.get("/", async (req, res) => {
 });
 
 // get single post
-
 router.get("/post/:id", async (req, res) => {
   try {
     // change the model below, but not the findByPk method.
