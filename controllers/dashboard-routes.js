@@ -9,7 +9,7 @@ router.get("/", withAuth, async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
-      attributes: ["id", "post_url", "title", "created_at"],
+      attributes: ["id", "post_text", "title", "created_at"],
       include: [
         {
           model: Comment,
@@ -52,7 +52,7 @@ router.get("/edit/:id", withAuth, async (req, res) => {
   try {
     // what should we pass here? we need to get some data passed via the request body
     const postData = await Post.findByPk(req.params.id, {
-      attributes: ["id", "post_url", "title", "created_at"],
+      attributes: ["id", "post_text", "title", "created_at"],
       include: [
         {
           model: Comment,
