@@ -25,6 +25,22 @@
     {{{body}}}
   </main>
 
+{{#if posts.length}}
+<section>
+    <h2 class="text-center mb-2">My Posts</h2>
+    <ul>
+        {{#each posts as |post|}}
+        <li class="list-item row">
+            {{> post-info post}}
+            <div>
+            <a class="edit" href="/dashboard/edit/{{post.id}}">Edit post</a>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</section>
+{{/if}}
+
   <footer class="footer flex-row justify-center">
     <a href="/dashboard/new">➕ New Post</a>
   </footer>
