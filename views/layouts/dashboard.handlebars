@@ -23,6 +23,24 @@
 
   <main class="col-auto">
     {{{body}}}
+    <article>
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-header">
+        New Post
+      </h2>
+      <form id="new-post-form">
+        <div>
+          <input name="post-title" type="text" value="{{post.title}}" />
+        </div>
+      <div>
+        <textarea name="post-body"></textarea>
+      </div>
+        <button class="btn" type="submit">Save post</button>
+      </form>
+    </div>
+  </div>
+</article>
   </main>
 
 {{#if posts.length}}
