@@ -57,7 +57,7 @@ router.post("/", async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.userId = newUser.id;
+      req.session.user_id = newUser.id;
       req.session.username = newUser.username;
       req.session.loggedIn = true;
 
@@ -89,7 +89,7 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.userId = user.id;
+      req.session.user_id = user.id;
       req.session.username = user.username;
       req.session.loggedIn = true;
 
@@ -108,6 +108,48 @@ router.post("/logout", (req, res) => {
   } else {
     res.status(404).end();
   }
+});
+
+//PUT /api/users/:id
+router.put("/:id", (req, res) => {
+  //expects any of these {'username': '', 'email': '', 'password': ''}
+  User.update(req.body, {
+    individualHooks: true,
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbUserData) => {
+      if (!dbUserData[0]) {
+        res.status(404).json({ message: "No user found with this id" });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+//DELETE /api/users/:id
+router.delete("/:id", (req, res) => {
+  User.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbUserData) => {
+      if (!dbUserData) {
+        res.status(404).json({ message: "No user found with this id" });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;

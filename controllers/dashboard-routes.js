@@ -30,7 +30,7 @@ router.get("/", withAuth, async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     res.render("dashboard", {
-      layout: "dashnoard",
+      layout: "dashboard",
       posts,
     });
   } catch (err) {
@@ -74,7 +74,8 @@ router.get("/edit/:id", withAuth, async (req, res) => {
       res.status(404).end();
     }
   } catch (err) {
-    res.redirect("login");
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 

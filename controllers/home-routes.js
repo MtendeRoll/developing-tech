@@ -20,13 +20,16 @@ router.get("/", async (req, res) => {
         },
         {
           model: User,
-          attributes: ["id", "username"],
+          attributes: ["username"],
         },
       ],
     });
     // serialize the data
     const posts = postData.map((post) => post.get({ plain: true }));
-    res.render("all-posts", { posts });
+    res.render("all-posts", {
+      layout: "all-posts",
+      posts,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -48,8 +51,11 @@ router.get("/post/:id", async (req, res) => {
 
     if (postData) {
       // serialize the data
-      const post = postData.get({ plain: true });
-      res.render("single-post", { post });
+      const posts = postData.get({ plain: true });
+      res.render("single-post", {
+        layout: "single-post",
+        posts,
+      });
     } else {
       res.status(404).end();
     }
