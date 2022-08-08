@@ -3,11 +3,12 @@
   <div class="card">
     <div class="card-body">
       <h2 class="card-header">
-        New Post
+        Create New Post
       </h2>
       <form id="new-post-form">
         <div>
-          <input name="post-title" type="text" value="{{post.title}}" />
+          <label for="post-title">Title</label>
+          <input name="post-title" type="text" id="post-title" />
         </div>
       <div>
         <textarea name="post-body"></textarea>
@@ -18,4 +19,20 @@
   </div>
 </article>
 
-<script src="/js/new-post.js"></script>
+{{#if posts.length}}
+<section>
+    <h2>My Posts</h2>
+    <ul>
+        {{#each posts as |post|}}
+        <li class="list-item">
+            {{> post-info post}}
+            <div>
+            <a class="edit" href="/dashboard/edit/{{post.id}}">Edit post</a>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</section>
+{{/if}}
+
+<script src="/js/new.js"></script>

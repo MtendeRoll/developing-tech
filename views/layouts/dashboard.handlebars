@@ -23,41 +23,7 @@
 
   <main class="col-auto">
     {{{body}}}
-    <article>
-  <div class="card">
-    <div class="card-body">
-      <h2 class="card-header">
-        New Post
-      </h2>
-      <form id="new-post-form">
-        <div>
-          <input name="post-title" type="text" value="{{post.title}}" />
-        </div>
-      <div>
-        <textarea name="post-body"></textarea>
-      </div>
-        <button class="btn" type="submit">Save post</button>
-      </form>
-    </div>
-  </div>
-</article>
   </main>
-
-{{#if posts.length}}
-<section>
-    <h2 class="text-center mb-2">My Posts</h2>
-    <ul>
-        {{#each posts as |post|}}
-        <li class="list-item row">
-            {{> post-info post}}
-            <div>
-            <a class="edit" href="/dashboard/edit/{{post.id}}">Edit post</a>
-            </div>
-        </li>
-        {{/each}}
-    </ul>
-</section>
-{{/if}}
 
   <footer class="footer flex-row justify-center">
     <a href="/dashboard/new">➕ New Post</a>

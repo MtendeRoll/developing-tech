@@ -27,7 +27,7 @@ router.get("/", async (req, res) => {
     // serialize the data
     const posts = postData.map((post) => post.get({ plain: true }));
     res.render("all-posts", {
-      layout: "all-posts",
+      layout: "main",
       posts,
     });
   } catch (err) {
@@ -53,7 +53,7 @@ router.get("/post/:id", async (req, res) => {
       // serialize the data
       const posts = postData.get({ plain: true });
       res.render("single-post", {
-        layout: "single-post",
+        layout: "main",
         posts,
       });
     } else {
