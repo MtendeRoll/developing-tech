@@ -5,11 +5,12 @@ const withAuth = require("../utils/auth");
 router.get("/", withAuth, async (req, res) => {
   try {
     // store the results of the db query in a variable called postData. should use something that "finds all" from the Post model. may need a where clause!
+
     const postData = await Post.findAll({
       where: {
         user_id: req.session.user_id,
       },
-      attributes: ["id", "post_text", "title", "created_at"],
+      attributes: ["id", "body", "title", "created_at"],
       order: [["created_at", "DESC"]],
       include: [
         {
@@ -28,10 +29,11 @@ router.get("/", withAuth, async (req, res) => {
     });
     // this sanitizes the data we just got from the db above (you have to create the above)
     const posts = postData.map((post) => post.get({ plain: true }));
-
+    console.log("~~~~~~~~~~~~~~~~~~~", posts);
     res.render("all-posts-admin", {
       layout: "dashboard",
       posts,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     res.redirect("login");
@@ -47,7 +49,7 @@ router.get("/new", withAuth, (req, res) => {
 router.get("/edit/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      attributes: ["id", "post_text", "title", "created_at"],
+      attributes: ["id", "body", "title", "created_at"],
       include: [
         {
           model: Comment,

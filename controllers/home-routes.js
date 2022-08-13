@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
   try {
     // we need to get all Posts and include the User for each (change lines 8 and 9)
     const postData = await Post.findAll({
-      attributes: ["id", "post_text", "title", "created_at"],
+      attributes: ["id", "body", "title", "created_at"],
       order: [["created_at", "DESC"]],
       include: [
         {
