@@ -1,27 +1,23 @@
-const sequelize = require("../config/connection");
-const { User, Post } = require("../models");
+const { User } = require("../models");
+const bcrypt = require("bcrypt");
 
 const userdata = [
-  // {
-  //   id: 1,
-  //   username: "alesmonde0",
-  //   password: "password123",
-  // },
-  // {
-  //   id: 2,
-  //   username: "jwilloughway1",
-  //   password: "password123",
-  // },
-  // {
-  //   id: 3,
-  //   username: "iboddam2",
-  //   password: "password123",
-  // },
-  // {
-  //   id: 4,
-  //   username: "dstanmer3",
-  //   password: "password123",
-  // },
+  {
+    username: "andrea",
+    password: bcrypt.hashSync("password123", 8),
+  },
+  {
+    username: "benji",
+    password: bcrypt.hashSync("password123", 8),
+  },
+  {
+    username: "carlos",
+    password: bcrypt.hashSync("password123", 8),
+  },
+  {
+    username: "deonte",
+    password: bcrypt.hashSync("password123", 8),
+  },
 ];
 
 const seedUsers = () => User.bulkCreate(userdata, { individualHooks: true });
