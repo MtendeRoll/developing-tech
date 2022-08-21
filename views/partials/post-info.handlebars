@@ -1,14 +1,14 @@
 <article>
   <div class="card">
     <div class="card-body">
-      <h4 class="card-header">{{title}}</h4>
-      <h5>Posted by:
+      <a href="/post/{{id}}">
+        <h4 class="card-header">{{title}}</h4>
+      </a>
+        <h5>Posted by:
         {{user.username}}
         on
         {{format_date created_at}}</h5>
-      <p>{{body}}</p>
-      <a href="/post/{{postId}}">{{comments.length}}
-        {{format_plural "comment" comments.length}}</a>
+        <p>{{body}}</p>
     </div>
   </div>
 </article>

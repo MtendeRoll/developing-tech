@@ -1,20 +1,15 @@
 {{> post-info post}}
 
-<div class="card">
-  <div class="card-header"> {{title}}</div>
-  <div class="card-body">{{body}}  | {{user_id}}</div>
-</div>
-
 {{#if loggedIn}}
 <div class="card">
   <div class="card-body">
-      <form class="comment-form">
+      <form id="new-comment-form">
+        <h3> Comment </h3>
         <div class="form-input">
           <textarea name="comment-body"></textarea>
         </div>
-
         <div>
-          <button class="btn" type="submit">add comment</button>
+          <button class="btn" type="submit"> Submit</button>
         </div>
       </form>
   </div>
