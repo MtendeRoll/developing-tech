@@ -19,18 +19,14 @@ The JSON file will have the necessary dependencies. type this in your command li
 npm i
 ```
 
-```
-mysql -u root -p
-```
-
-```
-mysql source <sql files in db folder>
-```
-
 Start the application :
 
 ```
-node index.js
+node server.js
+```
+
+```
+node seeds/seed.js
 ```
 
 ## Application Criteria
@@ -72,17 +68,12 @@ GIVEN a CMS-style blog site:
 
 ## Links
 
-- [Github Repository](https://github.com/MtendeRoll/mvcProjetct)
-- [Deployed Application](https://mtenderoll.github.io/mvcProject/)
-- [Heroku Deployement]()
+- [Github Repository](https://github.com/MtendeRoll/developing-tech)
+- [Deployed Application](https://developing-tech.herokuapp.com/)
 
 ## Application Gif
 
-- ![Mock-Up](./assets/images/mvcProjetct-demo.gif)
-
-## Walkthrough Video
-
-- [Video](https://drive.google.com/file/d/1cosiSZh6AyPHt75-3Chsp4XAbKJZYoqo/view)
+- ![Mock-Up](./public/gif/Developing-tech-mock-up.gif)
 
 ## License
 
