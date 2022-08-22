@@ -29,7 +29,6 @@ router.get("/", withAuth, async (req, res) => {
     });
     // this sanitizes the data we just got from the db above (you have to create the above)
     const posts = postData.map((post) => post.get({ plain: true }));
-    console.log("~~~~~~~~~~~~~~~~~~~", posts);
     res.render("all-posts-admin", {
       layout: "dashboard",
       posts,

@@ -6,11 +6,13 @@
             Edit Post
           </h2>
           <form id="edit-post-form">
+            <h2>Title</h2>
             <div>
               <input name="post-title" type="text" value="{{post.title}}" />
             </div>
+            <h2>Content</h2>
             <div>
-              <textarea name="post-body" type="text" value="{{post.body}}"></textarea>
+              <input name="post-body" type="text" value="{{post.body}}"></input>
             </div>
             <div>
               by you on {{format_date post.created_at}}
@@ -24,21 +26,5 @@
   </div>
 </article>
 
-<div class="card">
-  <div class="card-body">
-      <form id="new-comment-form">
-        <div>
-          <textarea name="comment-body"></textarea>
-        </div>
-
-        <div>
-          <button class="btn" type="submit">add comment</button>
-        </div>
-      </form>
-  </div>
-</div>
-
-{{> comments post.comments}}
 
 <script src="/js/edit.js"></script>
-<script src="/js/comment.js"></script>
